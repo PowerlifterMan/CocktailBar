@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreenFragment">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".presentation.MainScreenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="283dp"
+        android:layout_height="283dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_summer" />
+
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="@string/my_coctails_text"
+        android:textSize="36sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainFragmentRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layoutMode="clipBounds"
+        android:visibility="gone"
+        />
 
-</FrameLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_main_Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:clickable="true"
+        android:foregroundGravity="bottom|center"
+        android:minWidth="32dp"
+        android:minHeight="32dp"
+        android:src="@android:drawable/ic_input_add"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</LinearLayout>
