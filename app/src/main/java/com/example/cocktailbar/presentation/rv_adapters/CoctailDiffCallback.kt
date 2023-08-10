@@ -1,4 +1,4 @@
-package com.example.cocktailbar.presentation
+package com.example.cocktailbar.presentation.rv_adapters
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.cocktailbar.domain.Coctail
