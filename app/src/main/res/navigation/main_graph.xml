@@ -7,12 +7,15 @@
 
     <fragment
         android:id="@+id/mainScreenFragment"
-        android:name="com.example.cocktailbar.presentation.MainScreenFragment"
+        android:name="com.example.cocktailbar.presentation.MainFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" >
         <action
             android:id="@+id/action_mainScreenFragment_to_coctailCardFragment"
             app:destination="@id/coctailCardFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_editCoctailFragment"
+            app:destination="@id/editCoctailFragment" />
     </fragment>
     <fragment
         android:id="@+id/coctailCardFragment"

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cocktailbar.R
@@ -21,10 +20,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MainScreenFragment.newInstance] factory method to
+ * Use the [MainFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainScreenFragment : Fragment() {
+class MainFragment : Fragment() {
     private var _binding: FragmentMainScreenBinding? = null
     private val binding: FragmentMainScreenBinding
         get() = _binding ?: throw RuntimeException("FragmentMainScreenBinding? == null")
@@ -33,8 +32,8 @@ class MainScreenFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private val coctailAdapter = CoctailAdapter()
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    private val viewModel: MainFragmentViewModel by lazy {
+        ViewModelProvider(requireActivity())[MainFragmentViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +56,9 @@ class MainScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rvList = viewModel.getList()
-
+        binding.fabMainFragment.setOnClickListener {
+            findNavController().navigate(R.id.action_mainScreenFragment_to_editCoctailFragment)
+        }
         rvList.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 binding.mainFragmentRecyclerView.visibility = View.VISIBLE
@@ -92,7 +93,7 @@ class MainScreenFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String = "", param2: String = "") =
-            MainScreenFragment().apply {
+            MainFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

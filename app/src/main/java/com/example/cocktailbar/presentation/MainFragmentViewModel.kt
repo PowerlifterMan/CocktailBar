@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import com.example.cocktailbar.data.CoctailRepositoryImpl
 import com.example.cocktailbar.domain.Interactor
 
-class MainViewModel (application: Application): AndroidViewModel(application) {
+class MainFragmentViewModel (application: Application): AndroidViewModel(application) {
 
     private val repository = CoctailRepositoryImpl(application)
     private val interactor = Interactor(repository)
