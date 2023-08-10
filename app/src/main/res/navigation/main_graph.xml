@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainScreenFragment_to_coctailCardFragment"
             app:destination="@id/coctailCardFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_editCoctailFragment"
+            app:destination="@id/editCoctailFragment" />
     </fragment>
     <fragment
         android:id="@+id/coctailCardFragment"

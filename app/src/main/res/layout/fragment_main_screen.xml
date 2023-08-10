@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".presentation.MainScreenFragment">
@@ -29,19 +30,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layoutMode="clipBounds"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_main_Fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom|center_horizontal"
+        android:adjustViewBounds="false"
         android:clickable="true"
-        android:foregroundGravity="bottom|center"
-        android:minWidth="32dp"
-        android:minHeight="32dp"
-        android:src="@android:drawable/ic_input_add"
+        android:scaleType="centerInside"
+        android:src="@drawable/floatplus"
+        app:backgroundTint="#4B97FF"
+        app:fabCustomSize="80dp"
+        app:fabSize="normal"
+        app:tint="@color/white"
         tools:ignore="SpeakableTextPresentCheck" />
+
 
 </LinearLayout>

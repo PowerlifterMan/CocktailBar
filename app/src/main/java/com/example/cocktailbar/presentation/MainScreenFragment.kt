@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cocktailbar.R
 import com.example.cocktailbar.databinding.FragmentMainScreenBinding
 import com.example.cocktailbar.domain.Coctail
+import com.example.cocktailbar.presentation.rv_adapters.CoctailAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,14 +67,18 @@ class MainScreenFragment : Fragment() {
             }
 
         }
+        binding.fabMainFragment.setOnClickListener {
+            findNavController().navigate(MainScreenFragmentDirections.actionMainScreenFragmentToEditCoctailFragment())
+        }
         binding.mainFragmentRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         coctailAdapter.coctailItemClickListener =
             object : CoctailAdapter.OnCoctailItemClickListener {
                 override fun itemClick(coctail: Coctail) {
-                    Navigation.findNavController(
-                        requireActivity(),
-                        R.id.fragment_container_view
-                    ).navigate(R.id.action_mainScreenFragment_to_coctailCardFragment)
+                    findNavController().navigate(MainScreenFragmentDirections.actionMainScreenFragmentToCoctailCardFragment())
+//                    Navigation.findNavController(
+//                        requireActivity(),
+//                        R.id.fragment_container_view
+//                    ).navigate(R.id.action_mainScreenFragment_to_coctailCardFragment)
 
                 }
             }
